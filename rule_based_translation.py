@@ -17,13 +17,13 @@ import os
 nlp = stanza.Pipeline(lang='en', processors='tokenize,mwt,pos')
 
 def word_swapper(stdin, stdout):
-  swaps = open("./gender_swap/generalized_swaps.txt").readlines()
+  swaps = open("./swap_dicts/generalized_swaps.txt").readlines()
   swap_dict = {}
   for line in swaps:
     tabs = line.split("\t")
     swap_dict[tabs[-2].strip()] = tabs[-1].strip()
 
-  swaps = open("./gender_swap/extra_gendered_words.txt").readlines()
+  swaps = open("./swap_dicts/extra_gendered_words.txt").readlines()
   for line in swaps:
     tabs = line.split("\t")
     swap_dict[tabs[-2].strip()] = tabs[-1].strip()
