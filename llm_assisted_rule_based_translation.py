@@ -65,7 +65,7 @@ tokenizer = RegexpTokenizer(r'\w+|\$[\d\.]+|\S+')
 
 def word_swapper(stdin, stdout):
   lines = open(stdin).readlines()
-  with open("./llm_generated_dict.txt") as f:
+  with open("./swap_dicts/llm_generated_dict.txt") as f:
     swap_dict = f.read()
 
   swap_dict = json.loads(swap_dict)
@@ -116,7 +116,7 @@ def word_swapper(stdin, stdout):
     swapped_doc = swapped_doc.replace("<sep>", "<SEP>")
     outfile.write(swapped_doc)
 
-  with open("./llm_generated_dict.txt", 'w') as outfile:
+  with open("./swap_dicts/llm_generated_dict.txt", 'w') as outfile:
     outfile.write(json.dumps(swap_dict))
 
 
